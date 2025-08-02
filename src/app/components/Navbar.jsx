@@ -5,14 +5,14 @@ const Navbar = () => {
     <div className="hidden lg:block">
       <div className="@container">
         <div className="container_inner flex w-fit gap-10 mx-auto font-medium py-4 text-blackfish">
-          <div className="nav_link relative">HOME</div>
-          <div className="nav_link relative">CATEGORIES</div>
-          <div className="nav_link relative">{`MEN'S`}</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>  
-          <div className="nav_link relative">JEWELARY</div>
-          <div className="nav_link relative">PERFUME</div>
-          <div className="nav_link relative">BLOG</div>
-          <div className="nav_link relative">HOT OFFERS</div>
+          <div className="nav_link relative cursor-pointer">HOME</div>
+          <div className="nav_link relative cursor-pointer">CATEGORIES</div>
+          <div className="nav_link relative cursor-pointer">{`MEN'S`}</div>
+          <div className="nav_link relative cursor-pointer">{`WOMEN'S`}</div>  
+          <div className="nav_link relative cursor-pointer">JEWELARY</div>
+          <div className="nav_link relative cursor-pointer">PERFUME</div>
+          <div className="nav_link relative cursor-pointer">BLOG</div>
+          <div className="nav_link relative cursor-pointer">HOT OFFERS</div>
         </div>
       </div>
     </div>
