@@ -8,14 +8,9 @@ const Navbar = () => {
           <div className="nav_link relative">HOME</div>
           <div className="nav_link relative">CATEGORIES</div>
           <div className="nav_link relative">{`MEN'S`}</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
-          <div>JEWELARY</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
-          <div>PERFUME</div>
-          <div className="nav_link relative">{`WOMEN'S`}</div>
+          <div className="nav_link relative">{`WOMEN'S`}</div>  
+          <div className="nav_link relative">JEWELARY</div>
+          <div className="nav_link relative">PERFUME</div>
           <div className="nav_link relative">BLOG</div>
           <div className="nav_link relative">HOT OFFERS</div>
         </div>
