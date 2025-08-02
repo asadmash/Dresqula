@@ -7,7 +7,7 @@ const ProductCard = ({ img, title, desc, rating, price }) => {
     switch (rating) {
       case 1:
         return (
-          <div>
+          <div className="flex gap-1 text-[20px] text-[#ff9529]">
             <AiFillStar />
             <AiOutlineStar />
             <AiOutlineStar />
@@ -17,7 +17,7 @@ const ProductCard = ({ img, title, desc, rating, price }) => {
         );
       case 2:
         return (
-          <div>
+           <div className="flex gap-1 text-[20px] text-[#ff9529]">
             <AiFillStar />
             <AiFillStar />
             <AiOutlineStar />
@@ -27,7 +27,7 @@ const ProductCard = ({ img, title, desc, rating, price }) => {
         );
       case 3:
         return (
-          <div>
+           <div className="flex gap-1 text-[20px] text-[#ff9529]">
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
@@ -37,7 +37,7 @@ const ProductCard = ({ img, title, desc, rating, price }) => {
         );
       case 4:
         return (
-          <div>
+          <div className="flex gap-1 text-[20px] text-[#ff9529]">
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
@@ -47,7 +47,7 @@ const ProductCard = ({ img, title, desc, rating, price }) => {
         );
       case 5:
         return (
-          <div>
+           <div className="flex gap-1 text-[20px] text-[#ff9529]">
             <AiFillStar />
             <AiFillStar />
             <AiFillStar />
