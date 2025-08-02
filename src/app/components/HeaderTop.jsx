@@ -3,9 +3,9 @@ import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const HeaderTop = () => {
   return (
-    <div>
-      <div>
-        <div>
+    <div className="border-b border-gray-200 hidden sm:block">
+      <div className="container py-4">
+        <div className="flex justify-between items-center">
           <div>
             <div>
               <BsFacebook />
