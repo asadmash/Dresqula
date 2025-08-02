@@ -5,3 +5,9 @@
     overflow-x: hidden;
   }
 }
+
+@layer components {
+  .header_top_icon_wrapper{
+    @apply bg-gray-200;
+  }
+}
