@@ -3,6 +3,7 @@ import "./globals.css";
 import HeaderTop from "./components/HeaderTop";
 import HeaderMain from "./components/HeaderMain";
 import Navbar from "./components/Navbar";
+import MobNavbar from "./components/MobNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
            <HeaderTop/>
         <HeaderMain/>
         <Navbar/>
+        <MobNavbar/>
         {children}
         </div>
        </main>
