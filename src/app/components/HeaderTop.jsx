@@ -26,7 +26,13 @@ const HeaderTop = () => {
             this week order over - $55
           </div>
 
-          <div></div>
+          <div>
+            <select name="currency" id="currency">
+              <option value="USD $">USD $</option>
+              <option value="EUR €">EUR €</option>
+              <option value="BDT ৳">BDT ৳</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
