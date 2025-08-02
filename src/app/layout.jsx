@@ -4,6 +4,9 @@ import HeaderTop from "./components/HeaderTop";
 import HeaderMain from "./components/HeaderMain";
 import Navbar from "./components/Navbar";
 import MobNavbar from "./components/MobNavbar";
+// react slick animations
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
