@@ -15,4 +15,8 @@
   .header_top_icon_wrapper{
     @apply bg-gray-200 rounded-md p-[6px] text-[14px] cursor-pointer hover:bg-accent hover:text-white;
   }
+
+  .container-inner{
+    @apply  px-10 @sm:px-15 @md:px-20 @lg:px-30
+  }
 }
