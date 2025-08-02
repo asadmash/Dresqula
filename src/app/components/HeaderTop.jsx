@@ -13,21 +13,20 @@ const HeaderTop = () => {
             <div>
               <BsTwitter />
             </div>
-             <div>
+            <div>
               <BsInstagram />
             </div>
             <div>
-              <BsLinkedin/>
+              <BsLinkedin />
             </div>
           </div>
 
-          <div>
-            
+          <div className="text-gray-500 uppercase text-[12px]">
+            <strong>free shipping </strong>
+            this week order over - $55
           </div>
-          
-          <div>
-           
-          </div>
+
+          <div></div>
         </div>
       </div>
     </div>
