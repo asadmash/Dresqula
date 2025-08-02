@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductCard from './ProductCard';
 
 // Products data
 const productsData = [
@@ -56,7 +57,20 @@ const productsData = [
 const NewProducts = () => {
 
   return (
-    <div>NewProducts</div>
+    <div>
+      <div>
+        <h2>New Products</h2>
+        <div>
+          {
+            productsData.map((item, index) => {
+return(
+  <ProductCard key={index} img={item.img} title={item.title} desc={item.desc} rating={item.rating} price={item.price}/>
+)
+            })
+          }
+        </div>
+      </div>
+    </div>
   )
 }
 
