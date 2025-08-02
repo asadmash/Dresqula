@@ -12,11 +12,32 @@
 }
 
 @layer components {
-  .header_top_icon_wrapper{
+  .header_top_icon_wrapper {
     @apply bg-gray-200 rounded-md p-[6px] text-[14px] cursor-pointer hover:bg-accent hover:text-white;
   }
 
-  .container-inner{
-    @apply  px-10 @sm:px-15 @md:px-20 @lg:px-30
+  .container_inner {
+    @apply px-10 @sm:px-15 @md:px-20 @lg:px-30;
+  }
+
+  .nav_link:hover {
+transition: all 0.4s;
+color: #ff8f9c;
+}
+  .nav_link::after {
+    position: absolute;
+    content: "";
+    background-color: #ff8f9c;
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    scale: 0;
+    transform-origin: left;
+    transition: all 0.4s;
+  }
+
+  .nav_link:hover::after {
+    scale: 1;
   }
 }
