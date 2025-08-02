@@ -32,6 +32,10 @@ const HeaderTop = () => {
               <option value="EUR €">EUR €</option>
               <option value="BDT ৳">BDT ৳</option>
             </select>
+            <select name="language" id="language">
+              <option value="English">English</option>
+              <option value="French">French</option>
+            </select>
           </div>
         </div>
       </div>
