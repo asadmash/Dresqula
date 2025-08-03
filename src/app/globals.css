@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+
+
 @layer base {
   body {
     overflow-x: hidden;
+
+ 
   }
+
+  
 }
 
 @theme {
@@ -21,9 +27,9 @@
   }
 
   .nav_link:hover {
-transition: all 0.4s;
-color: #ff8f9c;
-}
+    transition: all 0.4s;
+    color: #ff8f9c;
+  }
   .nav_link::after {
     position: absolute;
     content: "";

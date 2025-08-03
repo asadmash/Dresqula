@@ -36,9 +36,12 @@ const slideData = [
 ];
 const Hero = () => {
   return (
-    <div className="@container  ">
+    <div className="@container">
       <div className="container_inner pt-6 lg:pt-0">
-        <Slider {...settings}>
+        <Slider
+          {...settings}
+          className="w-full h-full max-h-[300px] md:max-h-[700px]"
+        >
           {slideData.map((item) => {
             return (
               <Slide
