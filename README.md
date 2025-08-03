@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💃 DRESQULA
 
-## Getting Started
+**Bold, stylish fashion designed to make you stand out.**  
+_Dresqula is a visually stunning, high-performance fashion e-commerce frontend built with Next.js and modern web technologies._
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **React 19** – Component-based UI for seamless user experience
+- **Next.js (App Router)** – Modern routing and rendering optimization
+- **Tailwind CSS** – Utility-first styling with full responsiveness
+- **Better Auth** – Secure, scalable authentication and authorization
+- **TypeScript Ready** – (optional) for type safety and cleaner code
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Features
 
-## Learn More
+✅ **Responsive, Eye-Catching Design**  
+A fully responsive and mobile-friendly UI designed for visual impact, smooth navigation, and fashion-focused storytelling.
 
-To learn more about Next.js, take a look at the following resources:
+✅ **Modern Authentication**  
+Integrated with **Better Auth** for secure login, signup, and protected routes — making user sessions seamless and safe.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ **App Router Architecture**  
+Built using Next.js **App Router**, enabling flexible layouts, dynamic routing, server components, and route-level loading.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ **Reusable Components**  
+Modular components designed for scalability and reuse across product listings, filters, and checkout flows.
 
-## Deploy on Vercel
+✅ **Optimized Performance**  
+Image optimization, lazy loading, route-based code splitting — designed for fast initial loads and SEO.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✅ **Clean & Scalable Codebase**  
+Follows best practices in file structure, state management, and folder separation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

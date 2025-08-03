@@ -7,6 +7,7 @@ import MobNavbar from "./components/MobNavbar";
 // react slick animations
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         <MobNavbar/>
         {children}
+        <Footer/>
         </div>
        </main>
       </body>
