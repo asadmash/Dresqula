@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { BsPerson, BsSearch } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
@@ -7,8 +8,8 @@ const HeaderMain = () => {
   return (
     <div className="border-b border-gray-200 py-6 @container">
       <div className="container_inner sm:flex justify-between items-center">
-        <div className="font-bold text-4xl text-center pb-4 sm:pb-0 text-blackfish">
-          Sick
+        <div className="font-bold text-center pb-4 sm:pb-0 text-blackfish">
+          <Image src="/logo.png" width={150} height={150} alt="logo" />
         </div>
         <div className="w-full sm:w-[300px] md:w-[70%] relative">
           <input
