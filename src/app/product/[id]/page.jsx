@@ -1,7 +1,7 @@
 'use client';
 import { notFound, useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import {fetchProductById} from '@lib/api/products';
+import { fetchProductById } from '@/lib/api/products';
 import ProductDetails from '@/app/components/ProductDetails';
 
 const ProductPage = () => {

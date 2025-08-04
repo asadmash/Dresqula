@@ -30,6 +30,7 @@ const NewProducts = () => {
                 rating={item.rating.rate}
                 count={item.rating.count}
                 price={item.price}
+                id={item.id}
               />
             );
           })}

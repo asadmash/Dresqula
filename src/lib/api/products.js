@@ -18,7 +18,7 @@ try {
 
 
 
-export async function fetchProductsById(){
+export async function fetchProductById(id){
     try {
         // Get the response
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);

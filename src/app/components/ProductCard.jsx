@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 
-const ProductCard = ({ img, title, desc, rating, count, price }) => {
+const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
   const generateRating = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -46,7 +47,9 @@ const ProductCard = ({ img, title, desc, rating, count, price }) => {
           </del>
          </div>
          <div>
-          <button>View Details</button>
+          <Link href={`/product/${id}`} className="mt-4">
+          View Details
+          </Link>
          </div>
         </div>
       </div>
