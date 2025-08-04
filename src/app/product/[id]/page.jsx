@@ -2,6 +2,7 @@
 import { notFound, useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import {fetchProductById} from '@lib/api/products';
+import ProductDetails from '@/app/components/ProductDetails';
 
 const ProductPage = () => {
     const {id} = useParams();
@@ -24,8 +25,11 @@ const ProductPage = () => {
         }
         fetchData();
     }, [id]);
+
+    if(loading) return <p>Loading product...</p>
+    if(!product) return <p>Product not found.</p>
   return (
-    <div>page</div>
+    <ProductDetails/>
   )
 }
 
