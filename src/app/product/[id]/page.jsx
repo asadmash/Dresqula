@@ -22,7 +22,8 @@ const ProductPage = () => {
                 setLoading(false);
             }
         }
-    })
+        fetchData();
+    }, [id]);
   return (
     <div>page</div>
   )
