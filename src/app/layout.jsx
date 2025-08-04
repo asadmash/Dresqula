@@ -30,15 +30,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       <main>
-        <div >
-           <HeaderTop/>
+       <main className="min-h-screen flex flex-col">
+        <HeaderTop/>
         <HeaderMain/>
         <Navbar/>
         <MobNavbar/>
-        {children}
-        <Footer/>
+        <div className="flex-1">
+          {children}
         </div>
+        <Footer/>
        </main>
       </body>
     </html>

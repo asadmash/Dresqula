@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductDetails = ({ product: { image, title, description, price } }) => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 md:pt-20 grid md:grid-cols-2 gap-10">
+    <div className="max-w-5xl mx-auto px-4 py-8 md:pt-20 grid md:grid-cols-2 gap-10 h-full">
       <div className="relative w-full h-[300px] md:h-[400px] bg-white rounded-2xl">
         <Image
           src={image}
