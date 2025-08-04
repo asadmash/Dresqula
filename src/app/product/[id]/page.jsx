@@ -29,7 +29,7 @@ const ProductPage = () => {
     if(loading) return <p>Loading product...</p>
     if(!product) return <p>Product not found.</p>
   return (
-    <ProductDetails/>
+    <ProductDetails product={product}/>
   )
 }
 
