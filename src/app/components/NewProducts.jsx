@@ -1,20 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductCard from "./ProductCard";
-import { fetchProducts } from "@/lib/api/products";
 
-
-const NewProducts = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function getProducts() {
-      const data = await fetchProducts();
-      if (data) setProducts(data);
-    }
-    getProducts();
-  }, []);
-
+const NewProducts = ({ products }) => {
   return (
     <div className="@container">
       <div className="container_inner pt-16">

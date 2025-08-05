@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import { BsPerson, BsSearch } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import SearchBar from "./SearchBar";
 
 const HeaderMain = () => {
   return (
@@ -11,17 +12,7 @@ const HeaderMain = () => {
         <div className="font-bold text-center pb-4 sm:pb-0 text-blackfish">
           <Image src="/logo.png" width={150} height={150} alt="logo" />
         </div>
-        <div className="w-full sm:w-[300px] md:w-[70%] relative">
-          <input
-            type="text"
-            placeholder="Enter any product name..."
-            className="border-gray-200 border p-2 px-4 rounded-lg w-full "
-          />
-          <BsSearch
-            size={20}
-            className="absolute right-0 top-0 mr-3 mt-3 text-gray-400"
-          />
-        </div>
+        <SearchBar />
         <div className="hidden lg:flex text-gray-500 text-[30px] gap-4">
           <BsPerson />
           <div className="relative">
