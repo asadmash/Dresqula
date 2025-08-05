@@ -1,11 +1,12 @@
 import React from "react";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+import AuthButton from "./AuthButton";
 
 const HeaderTop = () => {
   return (
     <div className="border-b border-gray-200 hidden sm:block">
       <div className="py-4 @container">
-        <div className="flex justify-between container_inner">
+        <div className="flex justify-between container_inner items-center">
           <div className="hidden lg:flex gap-1">
             <div className="header_top_icon_wrapper">
               <BsFacebook />
@@ -44,6 +45,7 @@ const HeaderTop = () => {
               <option value="English">English</option>
               <option value="French">French</option>
             </select>
+            <AuthButton/>
           </div>
         </div>
       </div>
