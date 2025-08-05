@@ -11,7 +11,7 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
       if (rating >= i) {
         stars.push(<AiFillStar key={i} />);
       } else if (rating > i - 1) {
-    stars.push(<BsStarHalf key={i} />);
+        stars.push(<BsStarHalf key={i} />);
       } else {
         stars.push(<AiOutlineStar key={i} />);
       }
@@ -37,20 +37,24 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
         </h2>
         <p className="text-gray-500  line-clamp-3">{desc}</p>
         <div className="flex items-center gap-2">
-        <div className="inline-block">{generateRating(rating)}</div> <span>({count})</span>
+          <div className="inline-block">{generateRating(rating)}</div>{" "}
+          <span>({count})</span>
         </div>
         <div className="flex justify-between">
-         <div className="font-bold flex gap-4 ">
-           ${price}
-          <del className="text-gray-500 font-normal">
-            ${parseInt(price) + 50}.00
-          </del>
-         </div>
-         <div>
-          <Link href={`/product/${id}`} className="mt-4">
-          View Details
-          </Link>
-         </div>
+          <div className="font-bold flex gap-4 ">
+            ${price}
+            <del className="text-gray-500 font-normal">
+              ${parseInt(price) + 50}.00
+            </del>
+          </div>
+          <div>
+            <Link
+              href={`/product/${id}`}
+              className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium mb-2 inline-block"
+            >
+              View Details
+            </Link>
+          </div>
         </div>
       </div>
     </div>
