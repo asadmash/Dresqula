@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <AuthProvider>
        <main className="min-h-screen flex flex-col">
         <HeaderTop/>
         <HeaderMain/>
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         </div>
         <Footer/>
        </main>
+        </AuthProvider>
       </body>
     </html>
   );
