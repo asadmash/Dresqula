@@ -1,21 +1,51 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { fetchProducts } from "@/lib/api/products"; // Assuming products.js has a way to fetch all products
+import { useRouter } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({ selectedCategory }) => {
+  // Receive selectedCategory as prop
+  const [categories, setCategories] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function getCategories() {
+      try {
+        const data = await fetchProducts(); // Fetch all products to extract categories
+        if (data && Array.isArray(data)) {
+          // Extract unique categories
+          const uniqueCategories = [
+            ...new Set(data.map((product) => product.category)),
+          ];
+          setCategories(uniqueCategories);
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    }
+    getCategories();
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    router.push(`/?category=${category}`); // Update URL with category
+  };
+
   return (
-    <div className="hidden lg:block">
-      <div className="@container">
-        <div className="container_inner flex w-fit gap-10 mx-auto font-medium py-4 text-blackfish">
-          <div className="nav_link relative cursor-pointer">HOME</div>
-          <div className="nav_link relative cursor-pointer">CATEGORIES</div>
-          <div className="nav_link relative cursor-pointer">{`MEN'S`}</div>
-          <div className="nav_link relative cursor-pointer">{`WOMEN'S`}</div>  
-          <div className="nav_link relative cursor-pointer">JEWELARY</div>
-          <div className="nav_link relative cursor-pointer">PERFUME</div>
-          <div className="nav_link relative cursor-pointer">BLOG</div>
-          <div className="nav_link relative cursor-pointer">HOT OFFERS</div>
-        </div>
+    <nav className="bg-white py-4">
+      <div className="container_inner flex items-center justify-center space-x-8 uppercase">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+            className={`relative nav_link uppercase ${
+              selectedCategory === category ? "text-accent" : "text-gray-600"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
-    </div>
+    </nav>
   );
 };
 
