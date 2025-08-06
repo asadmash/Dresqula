@@ -1,33 +1,33 @@
-"use client";
-import { notFound, useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { notFound, redirect } from "next/navigation";
+import React from "react";
 import { fetchProductById } from "@/lib/api/products";
 import ProductDetails from "@/app/components/ProductDetails";
+import { getServerSession } from "next-auth";
+// Use the auth handler options from the root NextAuth config
+import { authOptions } from "../../../../auth";
 
-const ProductPage = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+const ProductPage = async ({ params }) => {
+  const { id } = params;
 
-  useEffect(() => {
-    if (!id) return;
+  // Get the session on the server
+  const session = await getServerSession(authOptions);
 
-    const fetchData = async () => {
-      try {
-        const data = await fetchProductById(id);
-        setProduct(data);
-      } catch (error) {
-        console.error("Failed to fetch product:", error);
-        notFound();
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [id]);
+  // if no session exists, redirect to the sign-in page
+  if (!session) {
+    // Redirect to sign-in, and then back to this product page after login.
+    redirect(`/signin?callbackUrl=/product/${id}`);
+  }
 
-  if (loading) return <p>Loading product...</p>;
-  if (!product) return <p>Product not found.</p>;
+  // Fetch data directly on the server.
+  // If fetchProductById throws an error, Next.js will catch it and show the nearest error.jsx.
+  const product = await fetchProductById(id);
+
+  // If the fetch was successful but returned no product, show the not-found page.
+  if (!product) {
+    notFound();
+  }
+
+  // No need for loading or error states, React Suspense and the notFound() function handle it.
   return <ProductDetails product={product} />;
 };
 
