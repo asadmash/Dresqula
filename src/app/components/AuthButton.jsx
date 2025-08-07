@@ -19,14 +19,6 @@ export default function AuthButton() {
   if (status === "authenticated") {
     return (
       <div className="flex items-center gap-2.5 bg-accent">
-        <Image
-          src={session.user.image}
-          alt={session.user.name}
-          width={32}
-          height={32}
-          className="rounded-full"
-        />
-        <span>{session.user.name}</span>
         <button
           onClick={() => signOut()}
           className="bg-accent text-black hover:bg-blackfish hover:text-white px-4 py-2 rounded-4xl font-medium transition-all delay-100"
