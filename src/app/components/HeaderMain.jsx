@@ -11,7 +11,14 @@ const HeaderMain = () => {
     <div className="border-b border-gray-200 py-6 @container sticky top-0 z-40 bg-white">
       <div className="container_inner sm:flex justify-between items-center">
         <div className="font-bold text-center pb-4 sm:pb-0 text-blackfish">
-          <Image src="/logo.png" width={150} height={150} alt="logo" />
+          <Image
+            src="/logo.png"
+            width={150}
+            height={40}
+            alt="logo"
+            priority
+            className="w-[150px] h-[40px]"
+          />
         </div>
         <SearchBar />
         <div className="hidden lg:flex text-gray-500 text-[30px] gap-4 items-center">
