@@ -1,9 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
 import Slide from "./Slide";
-import { useRouter } from "next/navigation";
-
 
 const slideData = [
   {
@@ -38,18 +36,12 @@ const settings = {
 };
 
 const Hero = ({ q, category }) => {
-  const router = useRouter();
   const hasSearch = q?.trim().length > 0;
   const hasCategory = category?.trim().length > 0;
 
   // If search or category is active, hide the hero
-  useEffect(() => {
-if(hasSearch || hasCategory){
-  router.replace("/");
-}
-  }, []);
-  
   if (hasSearch || hasCategory) return null;
+
   return (
     <div className="@container">
       <div className="container_inner pt-6 lg:pt-0">
