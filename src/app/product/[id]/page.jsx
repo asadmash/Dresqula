@@ -1,5 +1,5 @@
 import { notFound, redirect } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import { fetchProductById } from "@/lib/api/products";
 import ProductDetails from "@/app/components/ProductDetails";
 import { getServerSession } from "next-auth";
@@ -24,7 +24,7 @@ const ProductPage = async ({ params }) => {
 
   // If the fetch was successful but returned no product, show the not-found page.
   if (!product) {
-    notFound();
+    <Suspense>notFound();</Suspense>;
   }
 
   // No need for loading or error states, React Suspense and the notFound() function handle it.
