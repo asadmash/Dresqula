@@ -85,5 +85,5 @@ export const StateProvider = ({ children }) => {
 };
 
 export const useStateValue = () => {
-  useContext(StateContext);
+ return useContext(StateContext);
 };
