@@ -1,4 +1,4 @@
-"use client";
+
 import { notFound, redirect } from "next/navigation";
 import React, { Suspense } from "react";
 import { fetchProductById } from "@/lib/api/products";
