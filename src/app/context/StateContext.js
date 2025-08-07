@@ -48,6 +48,26 @@ export const reducer = (state, action) => {
             cart: newCart,
         }
 
+        // add remove from favorite
+        case 'TOGGLE_FAVORITE':
+            // check the item is already in favorite
+            const isFavorite = state.favorites.some((item) => item.id === action.payload.id);
+
+            let newFavorites;
+
+            if(isFavorite){
+                // If it is a favorite filter it out
+                newFavorites = state.favorites.filter((item) => item.id !== action.payload.id);
+            } else {
+                // if its not a favorite, add it to the array
+                newFavorites = [...state.favorites, action.payload];
+            }
+
+            return{
+                ...state,
+                favorites: newFavorites,
+            }
+
     default:
       return state;
   }
