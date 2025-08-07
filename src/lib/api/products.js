@@ -2,8 +2,8 @@ export async function fetchProducts({ q, category } = {}) {
   try {
     // Force fresh data on each navigation so server filtering reflects the current URL params
     const response = await fetch("https://fakestoreapi.com/products", {
-      cache: "no-store",
-      // Alternatively: next: { revalidate: 0 }
+      // cache: "no-store",
+      next: { revalidate: 60 },
     });
 
     if (!response.ok) {
@@ -42,8 +42,8 @@ export async function fetchProducts({ q, category } = {}) {
 export async function fetchProductById(id) {
   try {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
-      cache: "no-store",
-      // Alternatively: next: { revalidate: 0 }
+      // cache: "no-store",
+      next: { revalidate: 60 },
     });
 
     if (!response.ok) {
