@@ -2,7 +2,6 @@ import Hero from "./components/Hero";
 import NewProducts from "./components/NewProducts";
 import Testimonial from "./components/Testimonial";
 import { fetchProducts } from "@/lib/api/products";
-import SearchBar from "./components/SearchBar";
 
 /**
  * Server component page:
@@ -20,7 +19,7 @@ export default async function Home({ searchParams }) {
 
   return (
     <div>
-      <Hero />
+      <Hero q={q} category={category} />
       <div className="container mx-auto px-4 my-4"></div>
       <NewProducts products={products} />
       <Testimonial />

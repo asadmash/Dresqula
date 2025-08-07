@@ -12,7 +12,7 @@ const HeaderMain = () => {
 
   if (status === "authenticated") {
     return (
-      <div className="border-b border-gray-200 py-6 @container">
+      <div className="border-b border-gray-200 py-6 @container sticky top-0 z-40 bg-white">
         <div className="container_inner sm:flex justify-between items-center">
           <div className="font-bold text-center pb-4 sm:pb-0 text-blackfish">
             <Image src="/logo.png" width={150} height={150} alt="logo" />
@@ -20,14 +20,14 @@ const HeaderMain = () => {
           <SearchBar />
           <div className="hidden lg:flex text-gray-500 text-[30px] gap-4">
             <div className="flex items-center gap-2.5">
-               <Image
-                        src={session.user.image}
-                        alt={session.user.name}
-                        width={32}
-                        height={32}
-                        className="rounded-full"
-                        objectFit="cover"
-                      />
+              <Image
+                src={session.user.image}
+                alt={session.user.name}
+                width={32}
+                height={32}
+                className="rounded-full"
+                objectFit="cover"
+              />
             </div>
 
             <div className="relative">
@@ -48,7 +48,7 @@ const HeaderMain = () => {
     );
   }
   return (
-    <div className="border-b border-gray-200 py-6 @container">
+    <div className="border-b border-gray-200 py-6 @container sticky top-0 z-40 bg-white">
       <div className="container_inner sm:flex justify-between items-center">
         <div className="font-bold text-center pb-4 sm:pb-0 text-blackfish">
           <Image src="/logo.png" width={150} height={150} alt="logo" />

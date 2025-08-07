@@ -1,15 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import Slide from "./Slide";
+import { useRouter } from "next/navigation";
 
-let settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 const slideData = [
   {
@@ -34,7 +28,28 @@ const slideData = [
     price: "$30",
   },
 ];
-const Hero = () => {
+
+const settings = {
+  dots: true,
+  infinite: true,
+  autoplay: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+const Hero = ({ q, category }) => {
+  const router = useRouter();
+  const hasSearch = q?.trim().length > 0;
+  const hasCategory = category?.trim().length > 0;
+
+  // If search or category is active, hide the hero
+  useEffect(() => {
+if(hasSearch || hasCategory){
+  router.replace("/");
+}
+  }, []);
+  
+  if (hasSearch || hasCategory) return null;
   return (
     <div className="@container">
       <div className="container_inner pt-6 lg:pt-0">
@@ -42,17 +57,15 @@ const Hero = () => {
           {...settings}
           className="w-full h-full max-h-[300px] md:max-h-[700px]"
         >
-          {slideData.map((item) => {
-            return (
-              <Slide
-                key={item.id}
-                img={item.img}
-                title={item.title}
-                mainTitle={item.mainTitle}
-                price={item.price}
-              />
-            );
-          })}
+          {slideData.map((item) => (
+            <Slide
+              key={item.id}
+              img={item.img}
+              title={item.title}
+              mainTitle={item.mainTitle}
+              price={item.price}
+            />
+          ))}
         </Slider>
       </div>
     </div>

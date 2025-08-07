@@ -18,7 +18,7 @@ export default function AuthButton() {
   }
   if (status === "authenticated") {
     return (
-      <div className="flex items-center gap-2.5 bg-accent">
+      <div className="flex items-center gap-2.5 bg-accent rounded-4xl">
         <button
           onClick={() => signOut()}
           className="bg-accent text-black hover:bg-blackfish hover:text-white px-4 py-2 rounded-4xl font-medium transition-all delay-100"
