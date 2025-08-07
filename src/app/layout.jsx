@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/Footer";
 import { Providers } from "./components/Providers";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       
+        <Suspense>
           <Providers>
             <main className="min-h-screen flex flex-col">
               <HeaderTop />
@@ -42,7 +43,7 @@ export default function RootLayout({ children }) {
               <Footer />
             </main>
           </Providers>
-
+        </Suspense>
       </body>
     </html>
   );
