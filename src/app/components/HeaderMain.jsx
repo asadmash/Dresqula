@@ -5,8 +5,10 @@ import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import SearchBar from "./SearchBar";
 import UserAvatar from "./UserAvatar";
+import { useStateValue } from "../context/StateContext";
 
 const HeaderMain = () => {
+  const {state, dispatch} = useStateValue();
   return (
     <div className="border-b border-gray-200 py-6 @container sticky top-0 z-40 bg-white">
       <div className="container_inner sm:flex justify-between items-center">
@@ -32,7 +34,7 @@ const HeaderMain = () => {
           <div className="relative">
             <HiOutlineShoppingBag />
             <div className="bg-red-600 rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px] text-white grid place-items-center translate-x-1 -translate-y-1">
-              0
+             {state.cart.length}
             </div>
           </div>
         </div>
