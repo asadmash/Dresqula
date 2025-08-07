@@ -68,6 +68,9 @@ export const reducer = (state, action) => {
                 favorites: newFavorites,
             }
 
+    case 'SET_STATE':
+      return action.payload;
+
     default:
       return state;
   }
@@ -76,6 +79,30 @@ export const reducer = (state, action) => {
 // state provider component
 export const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Effect to load state from localStorage on initial render
+  useEffect(() => {
+    try {
+      const storedState = localStorage.getItem('app_state');
+      if (storedState) {
+        dispatch({ type: 'SET_STATE', payload: JSON.parse(storedState) });
+      }
+    } catch (error) {
+      console.error("Failed to load state from localStorage", error);
+    }
+  }, []);
+
+  // Effect to save state to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      // We don't save the initial state on the first render
+      if (state !== initialState) {
+        localStorage.setItem('app_state', JSON.stringify(state));
+      }
+    } catch (error) {
+      console.error("Failed to save state to localStorage", error);
+    }
+  }, [state]);
 
   return (
     <StateContext.Provider value={{ state, dispatch }}>
