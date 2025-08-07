@@ -11,7 +11,7 @@ export const StateContext = createContext();
 
 export const initialState = {
   cart: [],
-  favorite: [],
+  favorites: [],
 };
 
 // reducer function
@@ -30,45 +30,54 @@ export const reducer = (state, action) => {
       };
 
     case "REMOVE_FROM_CART":
-        // find the item of the matching id
-        const index = state.cart.findIndex((cartItem) => cartItem.id === action.payload.id);
+      // find the item of the matching id
+      const index = state.cart.findIndex(
+        (cartItem) => cartItem.id === action.payload.id
+      );
 
-        // create a new copy of the cart
-        let newCart = [...state.cart];
+      // create a new copy of the cart
+      let newCart = [...state.cart];
 
-        if(index >= 0){//if the item is found
-            // remove it from the new array
-            newCart.splice(index, 1);
-        } else {
-            console.warn(`Can't remove product (id: ${action.payload.id}) as it's not in the cart!`)
-        }
+      if (index >= 0) {
+        //if the item is found
+        // remove it from the new array
+        newCart.splice(index, 1);
+      } else {
+        console.warn(
+          `Can't remove product (id: ${action.payload.id}) as it's not in the cart!`
+        );
+      }
 
-        return {
-            ...state,
-            cart: newCart,
-        }
+      return {
+        ...state,
+        cart: newCart,
+      };
 
-        // add remove from favorite
-        case 'TOGGLE_FAVORITE':
-            // check the item is already in favorite
-            const isFavorite = state.favorites.some((item) => item.id === action.payload.id);
+    // add remove from favorite
+    case "TOGGLE_FAVORITE":
+      // check the item is already in favorite
+      const isFavorite = state.favorites.some(
+        (item) => item.id === action.payload.id
+      );
 
-            let newFavorites;
+      let newFavorites;
 
-            if(isFavorite){
-                // If it is a favorite filter it out
-                newFavorites = state.favorites.filter((item) => item.id !== action.payload.id);
-            } else {
-                // if its not a favorite, add it to the array
-                newFavorites = [...state.favorites, action.payload];
-            }
+      if (isFavorite) {
+        // If it is a favorite filter it out
+        newFavorites = state.favorites.filter(
+          (item) => item.id !== action.payload.id
+        );
+      } else {
+        // if its not a favorite, add it to the array
+        newFavorites = [...state.favorites, action.payload];
+      }
 
-            return{
-                ...state,
-                favorites: newFavorites,
-            }
+      return {
+        ...state,
+        favorites: newFavorites,
+      };
 
-    case 'SET_STATE':
+    case "SET_STATE":
       return action.payload;
 
     default:
@@ -83,9 +92,13 @@ export const StateProvider = ({ children }) => {
   // Effect to load state from localStorage on initial render
   useEffect(() => {
     try {
-      const storedState = localStorage.getItem('app_state');
+      const storedState = localStorage.getItem("app_state");
       if (storedState) {
-        dispatch({ type: 'SET_STATE', payload: JSON.parse(storedState) });
+        const parsedState = JSON.parse(storedState);
+        dispatch({
+          type: "SET_STATE",
+          payload: { ...initialState, ...parsedState },
+        });
       }
     } catch (error) {
       console.error("Failed to load state from localStorage", error);
@@ -97,7 +110,7 @@ export const StateProvider = ({ children }) => {
     try {
       // We don't save the initial state on the first render
       if (state !== initialState) {
-        localStorage.setItem('app_state', JSON.stringify(state));
+        localStorage.setItem("app_state", JSON.stringify(state));
       }
     } catch (error) {
       console.error("Failed to save state to localStorage", error);
@@ -112,5 +125,5 @@ export const StateProvider = ({ children }) => {
 };
 
 export const useStateValue = () => {
- return useContext(StateContext);
+  return useContext(StateContext);
 };

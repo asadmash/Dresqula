@@ -53,7 +53,7 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
           <div>
             <Link
               href={`/product/${id}`}
-              className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium mb-2 inline-block"
+              className="bg-[#7955fa] hover:bg-[#ee623a] text-white transition-all px-4 py-2 rounded-xl font-medium mb-2 inline-block"
             >
               View Details
             </Link>

@@ -9,26 +9,38 @@ import { useStateValue } from "../context/StateContext";
 const ProductDetails = ({
   product: { id, image, title, description, price, rating },
 }) => {
+  const { state, dispatch } = useStateValue();
 
-// use state value dispatch
-const {dispatch} = useStateValue();
+  const handleAddToCart = () => {
+    console.log("Adding To Cart:", title);
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id: id,
+        name: title,
+        price: price,
+        image: image,
+        quantity: 1,
+      },
+    });
+  };
 
-// handler function for state
-const handleAddToCart = () => {
-  console.log("Adding To Cart:", title);
+  const handleToggleFavorite = () => {
+    dispatch({
+      type: "TOGGLE_FAVORITE",
+      payload: {
+        id: id,
+        name: title,
+        price: price,
+        image: image,
+      },
+    });
+  };
 
-  // dispatch the action object
-  dispatch({
-    type: "ADD_TO_CART",
-    payload: {
-      id: id,
-      name: title,
-      price: price,
-      image: image,
-      quantity: 1,
-    }
-  })
-}
+  // Defensively check if state.favorites is an array before calling .some()
+  const isFavorite =
+    Array.isArray(state.favorites) &&
+    state.favorites.some((item) => item.id === id);
 
   const generateRating = (rate) => {
     const stars = [];
@@ -68,16 +80,19 @@ const handleAddToCart = () => {
         </div>
         <div className="flex justify-between">
           <button
-            className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium" onClick={handleAddToCart}
+            className="bg-gray-200 hover:bg-accent hover:text-white transition-all px-4 py-2 rounded-xl font-medium"
+            onClick={handleAddToCart}
           >
             Add To Cart
           </button>
-          <Link
-            href="/"
-            className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium"
+          <button
+            onClick={handleToggleFavorite}
+            className={`${
+              isFavorite ? "bg-accent text-white" : "bg-gray-200"
+            } hover:bg-accent hover:text-white transition-all px-4 py-2 rounded-xl font-medium`}
           >
-            Add To Fav
-          </Link>
+            {isFavorite ? "Added To Fav" : "Add To Fav"}
+          </button>
         </div>
       </div>
     </div>
