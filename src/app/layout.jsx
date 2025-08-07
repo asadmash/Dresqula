@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/Footer";
 import AuthProvider from "./components/AuthProvider";
+import { StateProvider } from "./context/StateContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,16 +33,16 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-       <main className="min-h-screen flex flex-col">
-        <HeaderTop/>
-        <HeaderMain/>
-        <Navbar/>
-        <MobNavbar/>
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer/>
-       </main>
+          <StateProvider>
+            <main className="min-h-screen flex flex-col">
+              <HeaderTop />
+              <HeaderMain />
+              <Navbar />
+              <MobNavbar />
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </main>
+          </StateProvider>
         </AuthProvider>
       </body>
     </html>
