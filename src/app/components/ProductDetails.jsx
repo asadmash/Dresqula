@@ -1,12 +1,35 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
+import { useStateValue } from "../context/StateContext";
 
 const ProductDetails = ({
-  product: { image, title, description, price, rating },
+  product: { id, image, title, description, price, rating },
 }) => {
+
+// use state value dispatch
+const {dispatch} = useStateValue();
+
+// handler function for state
+const handleAddToCart = () => {
+  console.log("Adding To Cart:", title);
+
+  // dispatch the action object
+  dispatch({
+    type: "ADD_TO_CART",
+    payload: {
+      id: id,
+      name: title,
+      price: price,
+      image: image,
+      quantity: 1,
+    }
+  })
+}
+
   const generateRating = (rate) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -44,12 +67,11 @@ const ProductDetails = ({
           </div>
         </div>
         <div className="flex justify-between">
-          <Link
-            href="/"
-            className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium"
+          <button
+            className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium" onClick={handleAddToCart}
           >
             Add To Cart
-          </Link>
+          </button>
           <Link
             href="/"
             className="bg-amber-200 hover:bg-amber-600 hover:text-white transition-all px-4 py-2 rounded-xl font-medium"
