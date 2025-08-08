@@ -9,7 +9,11 @@ import { useRouter, useSearchParams } from "next/navigation";
  * - Updates q as user types via shallow push (no scroll) with debounce
  * - IMPORTANT: While typing, category is cleared to avoid sticky category+q
  */
-const SearchBar = ({ placeholder = "Enter any product name...", onChange, debounceMs = 400 }) => {
+const SearchBar = ({
+  placeholder = "Enter any product name...",
+  onChange,
+  debounceMs = 500,
+}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
