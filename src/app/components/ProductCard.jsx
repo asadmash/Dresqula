@@ -32,7 +32,7 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
         />
       </div>
       <div className="space-y-2 py-2">
-        <h2 className="text-accent font-medium uppercase line-clamp-2 mt-2">
+        <h2 className="text-accent font-medium uppercase line-clamp-1 mt-2">
           {title}
         </h2>
         <p className="text-gray-500  line-clamp-3">{desc}</p>
@@ -40,17 +40,20 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
           <div className="inline-block">{generateRating(rating)}</div>{" "}
           <span>({count})</span>
         </div>
-        <div className="flex justify-between">
-          <div className="font-bold flex gap-4 ">
-            ${price}
+        <div className="flex justify-between items-center flex-wrap gap-4 mt-4">
+          <div
+            className="font-bold flex gap-2 items-center"
+            style={{ minWidth: "140px" }}
+          >
+            <span>${price}</span>
             <del className="text-gray-500 font-normal">
               ${parseInt(price) + 50}.00
             </del>
           </div>
-          <div>
+          <div className="flex-grow">
             <Link
               href={`/product/${id}`}
-              className="bg-[#7955fa] hover:bg-[#ee623a] text-white transition-all px-4 py-2 rounded-xl font-medium mb-2 inline-block"
+              className="bg-[#7955fa] hover:bg-[#ee623a] text-white transition-all px-4 py-2 rounded-xl font-medium block w-full text-center"
             >
               View Details
             </Link>
