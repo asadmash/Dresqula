@@ -5,9 +5,6 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 
 const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
-
-
-
   const generateRating = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -23,10 +20,10 @@ const ProductCard = ({ img, title, desc, rating, count, price, id }) => {
   };
 
   return (
-    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px]">
-      <div>
+    <div className="px-4 border border-gray-200 rounded-xl max-w-[400px] h-full">
+      <div className="w-full max-w-[300px] h-[400px] max-h-[400px]">
         <Image
-          className="w-full max-w-[300px] h-[400px] object-contain pt-2"
+          className="w-full max-w-[300px] h-[400px] max-h-[400px] object-contain pt-2"
           src={img}
           width={200}
           height={300}
