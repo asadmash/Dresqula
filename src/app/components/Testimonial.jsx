@@ -22,7 +22,12 @@ const Testimonial = () => {
               <button className="bg-blackfish text-white p-2 rounded-md">25% DISCOUNT</button>
               <h2 className="font-extrabold text-xl text[#272727]">Summer Collection</h2>
               <p className="text-gray-500 text-[20px]">
-                Starting @ 20 <strong>shop now</strong>
+                Starting @ 20 <strong><a
+          className="bg-accent text-white text-[14px] md:text-[16px] p-2 px-4 rounded-lg inline-block cursor-pointer hover:bg-blackfish"
+          href="#new-products"
+        >
+          Shop Now
+        </a></strong>
               </p>
             </div>
           </div>

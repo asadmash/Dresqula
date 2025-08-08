@@ -56,12 +56,12 @@ const SearchBar = ({
     debouncedPush(next);
   };
 
-  const handleClear = () => {
-    setValue("");
-    debouncedPush("");
-  };
+  // const handleClear = () => {
+  //   setValue("");
+  //   debouncedPush("");
+  // };
 
-  const showClear = Boolean(value?.length);
+  // const showClear = Boolean(value?.length);
 
   return (
     <div className="w-full sm:w-[300px] md:w-[70%] relative">
@@ -78,7 +78,7 @@ const SearchBar = ({
         className="absolute right-0 top-0 mr-3 mt-3 text-gray-400 pointer-events-none"
         aria-hidden="true"
       />
-      {showClear && (
+      {/* {showClear && (
         <button
           type="button"
           onClick={handleClear}
@@ -88,7 +88,7 @@ const SearchBar = ({
         >
           ×
         </button>
-      )}
+      )} */}
     </div>
   );
 };
